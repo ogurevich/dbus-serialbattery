@@ -76,9 +76,7 @@ class DbusHelper:
             except Exception as e:
                 logger.error(f"error during obtaining VeDbusItemImport: {e}")
 
-            self.battery.get_system_dc_battery_soc = (
-                lambda: self.get_dbus_battery_soc()
-            )
+            self.battery.get_system_dc_battery_soc = lambda: self.get_dbus_battery_soc()
             systemDcBatterySoc = self.get_dbus_battery_soc()
             if systemDcBatterySoc:
                 logger.info(
